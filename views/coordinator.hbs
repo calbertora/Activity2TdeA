@@ -1,0 +1,27 @@
+{{>header}}
+<h1>Acciones del Coordinador</h1>
+
+<h2>Ingresar un nuevo curso: </h2>
+<form action="/course" method="POST">
+   <div class="form-group">
+      <label for="courseID">Identificador del curso</label>
+      <input type="text" id="courseID" name="courseID" required>
+
+      <label for="courseName">Nombre del curso</label>
+      <input type="text" id="courseName" name="courseName" required>
+
+      <label for="courseDescription">Descripción del curso</label>
+      <input type="text" id="courseDescription" name="courseDescription" required>
+
+      <label for="coursePrice">Precio del curso</label>
+      <input type="number" id="coursePrice" name="coursePrice" required>
+
+      <input type="radio" id="modaliity" name="modality" value="Virtual"> Virtual<br>
+      <input type="radio" id="modaliity" name="modality" value="Presencial"> Presencial<br>
+
+      <label for="coursePrice">Intensidad horaria</label>
+      <input type="number" id="intensity" name="intensity">
+   </div>
+   <input type="submit" value="Enviar">
+</form>
+{{>footer}}

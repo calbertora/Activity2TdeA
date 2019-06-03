@@ -1,0 +1,23 @@
+{{>header}}
+<h1>Suscribrse a un curso</h1>
+
+<h2>Ingresar datos de aspirante: </h2>
+<form action="/student" method="POST">
+   <div class="form-group">
+      <label for="studentID">Identificador del estudiante</label>
+      <input type="text" id="studentID" name="studentID" required>
+
+      <label for="studentName">Nombre del estudiante</label>
+      <input type="text" id="studentName" name="studentName" required>
+
+      <label for="studentEmail">Correo del estudiante</label>
+      <input type="email" id="studentEmail" name="studentEmail" required>
+
+      <label for="studentPhone">Teléfono del estudiante</label>
+      <input type="number" id="studentPhone" name="studentPhone" required>
+
+      <input type="number" id="courseID" name="courseID" value="{{course.courseID}}" hidden>
+   </div>
+   <input type="submit" value="Enviar">
+</form>
+{{>footer}}
