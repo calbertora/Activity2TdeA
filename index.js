@@ -36,6 +36,13 @@ app.get('/candidate', (req, res) => {
    });
 });
 
+app.get('/courseList', (req, res) => {
+   const courses = functions.getCourses();
+   res.render('courseList',{
+      courses
+   });
+});
+
 app.get('/subscribe/:courseID', (req, res) => {
    const course = functions.getCourse(req.params.courseID);
    res.render('subscribeCourse',{
@@ -47,6 +54,22 @@ app.get('/course/:id', (req, res) => {
    const course = functions.getCourse(req.params.id);
    res.render('courseDetail',{
       course
+   });
+});
+
+app.get('/studentsByCourse/:id', (req, res) => {
+   const students = functions.getStudentsByCourse(req.params.id);
+   res.render('studentsByCourse',{
+      students,
+      courseID: req.params.id
+   });
+});
+
+app.get('/deleteStudent/:id', (req, res) => {
+   functions.deleteStudent(req.params.studentID,req.params.courseID);
+   const courses = functions.getCourses();
+   res.render('courseList',{
+      courses
    });
 });
 
@@ -64,9 +87,8 @@ app.post('/course', (req, res) => {
 app.post('/student', (req, res) => {
    try {
       functions.storeStudent(req.body);
-      const courses = functions.getCourses();
-      res.render('canditate',{
-         courses
+      res.render('studentSubscribed',{
+         course: req.body.courseID
       });
    } catch (err) {
       res.render('error',{

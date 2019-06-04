@@ -91,9 +91,25 @@ function storeStudent(student_) {
    storeStudentData();
 }
 
+function getStudentsByCourse(courseID) {
+   readStudentFile();   
+   return students.filter(student => student.studentCourses.includes(courseID));
+}
+
+function deleteStudent(studentID, courseID) {
+   readStudentFile();
+
+   const studentDeleted = students.find(student => student.studentID === studentID);
+
+   studentDeleted.studentCourses.splice( list.indexOf(courseID), 1 );
+   storeStudentData();
+}
+
 module.exports = {
    storeCourse,
    getCourses,
    getCourse,
-   storeStudent
+   storeStudent,
+   getStudentsByCourse,
+   deleteStudent
 }

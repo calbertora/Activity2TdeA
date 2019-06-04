@@ -1,0 +1,29 @@
+{{>header}}
+
+<h2>Lista de usuarios del curso {{courseID}}</h2>
+
+<table>
+   <thead>
+      <tr>
+         <th>Identificación del estudiante</th>
+         <th>Nombre del estudiante</th>
+         <th>Correo del estudiante</th>
+         <th>Teléfono del estudiante</th>
+         <th>Eliminar</th>
+      </tr>
+   </thead>
+   <tbody>
+      {{#each students}}
+        <tr>
+           <td>{{this.studentID}}</td>
+           <td>{{this.studentName}}</td>
+           <td>{{this.studentEmail}}</td>
+           <td>{{this.studentPhone}}</td>
+           <td> <a href="/deleteStudent?studentID{{this.studentID}}&courseID={{courseID}}">Eliminar del curso</a></td>
+        </tr>
+      {{/each}}
+   </tbody>
+</table>
+
+   <p>{{courseID}}</p>
+{{>footer}}

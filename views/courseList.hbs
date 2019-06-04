@@ -1,0 +1,32 @@
+{{>header}}
+<h1>Acciones adicionales del coordinador</h1>
+
+<h2>Lista de estudiantes por Curso</h2>
+
+<table>
+   <thead>
+      <tr>
+         <th>Nombre del curso</th>
+         <th>Descripción del curso</th>
+         <th>Precio del curso</th>
+         <th>Activo</th>
+         <th>Estudiantes</th>
+      </tr>
+   </thead>
+   <tbody>
+      {{#each courses}}
+        <tr>
+           <td>{{this.courseName}}</td>
+           <td>{{this.courseDescription}}</td>
+           <td>{{this.coursePrice}}</td>
+           <td>{{this.active}}</td>
+           <td> 
+              <a href="/studentsByCourse/{{this.courseID}}">Ver estudiantes</a>
+              <a href="/changeState/{{this.courseID}}">Cambiar de estado</a>
+           </td>
+        </tr>
+      {{/each}}
+   </tbody>
+</table>
+
+{{>footer}}
