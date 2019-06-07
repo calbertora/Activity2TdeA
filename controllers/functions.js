@@ -61,6 +61,11 @@ function getCourses() {
    return courses;
 }
 
+function getActiveCourses() {
+   readCourseFile();
+   return courses.filter(course => course.active === true);
+}
+
 function getCourse(id) {
    readCourseFile();
    const course = courses.find(course => course.courseID == id);
@@ -101,8 +106,17 @@ function deleteStudent(studentID, courseID) {
 
    const studentDeleted = students.find(student => student.studentID === studentID);
 
-   studentDeleted.studentCourses.splice( list.indexOf(courseID), 1 );
+   studentDeleted.studentCourses.splice( studentDeleted.studentCourses.indexOf(courseID), 1 );
    storeStudentData();
+}
+
+function updateState(courseID) {
+   readCourseFile();
+
+   const course = courses.find(course => course.courseID === courseID);
+
+   course.active = !course.active;
+   storeCourseData();
 }
 
 module.exports = {
@@ -111,5 +125,7 @@ module.exports = {
    getCourse,
    storeStudent,
    getStudentsByCourse,
-   deleteStudent
+   deleteStudent,
+   updateState,
+   getActiveCourses
 }

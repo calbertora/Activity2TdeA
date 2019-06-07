@@ -19,11 +19,10 @@
            <td>{{this.studentName}}</td>
            <td>{{this.studentEmail}}</td>
            <td>{{this.studentPhone}}</td>
-           <td> <a href="/deleteStudent?studentID{{this.studentID}}&courseID={{courseID}}">Eliminar del curso</a></td>
+           <td> <a href="/deleteStudent/{{../courseID}}/{{this.studentID}}">Eliminar del curso</a></td>
         </tr>
       {{/each}}
    </tbody>
 </table>
 
-   <p>{{courseID}}</p>
 {{>footer}}

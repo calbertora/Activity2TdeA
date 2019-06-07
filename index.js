@@ -7,6 +7,14 @@ const functions = require('./controllers/functions')
 
 const views = path.join(__dirname,'./views');
 const partials = path.join(__dirname,'./partials');
+const dirNode_modules = path.join(__dirname , '../node_modules')
+
+// Bootstrap
+app.use('/css', express.static(dirNode_modules + '/bootstrap/dist/css'));
+app.use('/js', express.static(dirNode_modules + '/jquery/dist'));
+app.use('/js', express.static(dirNode_modules + '/popper.js/dist'));
+
+app.use('/js', express.static(dirNode_modules + '/bootstrap/dist/js'));
 
 app.use(express.static(views));
 app.use(bodyParser.urlencoded({extended: false}));
@@ -23,14 +31,14 @@ app.get('/coordinator', (req, res) => {
 });
 
 app.get('/interested', (req, res) => {
-   const courses = functions.getCourses();
+   const courses = functions.getActiveCourses();
    res.render('interested',{
       courses
    });
 });
 
 app.get('/candidate', (req, res) => {
-   const courses = functions.getCourses();
+   const courses = functions.getActiveCourses();
    res.render('candidate',{
       courses
    });
@@ -65,8 +73,16 @@ app.get('/studentsByCourse/:id', (req, res) => {
    });
 });
 
-app.get('/deleteStudent/:id', (req, res) => {
+app.get('/deleteStudent/:courseID/:studentID', (req, res) => {
    functions.deleteStudent(req.params.studentID,req.params.courseID);
+   const courses = functions.getCourses();
+   res.render('courseList',{
+      courses
+   });
+});
+
+app.get('/changeState/:courseID', (req, res) => {
+   functions.updateState(req.params.courseID);
    const courses = functions.getCourses();
    res.render('courseList',{
       courses
@@ -82,7 +98,7 @@ app.post('/course', (req, res) => {
          error: err
       })
    }
-})
+});
 
 app.post('/student', (req, res) => {
    try {
