@@ -1,27 +1,33 @@
 {{>header}}
-<h1>Acciones del interesado</h1>
 
-<h2>Lista de cursos disponibles</h2>
+<div class="d-flex justify-content-center">
+   <h1>Acciones del interesado</h1>
+</div>
 
-<table>
-   <thead>
-      <tr>
-         <th>Nombre del curso</th>
-         <th>Descripción del curso</th>
-         <th>Precio del curso</th>
-         <th>Detalle</th>
-      </tr>
-   </thead>
-   <tbody>
-      {{#each courses}}
-        <tr>
-           <td>{{this.courseName}}</td>
-           <td>{{this.courseDescription}}</td>
-           <td>{{this.coursePrice}}</td>
-           <td> <a href="/course/{{this.courseID}}">Ver detalle</a></td>
-        </tr>
-      {{/each}}
-   </tbody>
-</table>
+<div class="container">
+   <h2>Lista de cursos disponibles</h2>
 
-{{>footer}}
+   <table class="table">
+      <thead class="thead-dark">
+         <tr>
+            <th>Nombre del curso</th>
+            <th>Descripción del curso</th>
+            <th>Precio del curso</th>
+            <th>Detalle</th>
+         </tr>
+      </thead>
+      <tbody>
+         {{#each courses}}
+         <tr>
+            <td>{{this.courseName}}</td>
+            <td>{{this.courseDescription}}</td>
+            <td>{{this.coursePrice}}</td>
+            <td> <a href="/course/{{this.courseID}}">Ver detalle</a></td>
+         </tr>
+         {{/each}}
+      </tbody>
+   </table>
+
+   {{>footer}}
+
+</div>

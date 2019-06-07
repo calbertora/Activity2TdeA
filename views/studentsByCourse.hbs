@@ -1,28 +1,34 @@
 {{>header}}
 
-<h2>Lista de usuarios del curso {{courseID}}</h2>
+<div class="d-flex justify-content-center">
+   <h2>Lista de usuarios del curso {{courseID}}</h2>
 
-<table>
-   <thead>
-      <tr>
-         <th>Identificación del estudiante</th>
-         <th>Nombre del estudiante</th>
-         <th>Correo del estudiante</th>
-         <th>Teléfono del estudiante</th>
-         <th>Eliminar</th>
-      </tr>
-   </thead>
-   <tbody>
-      {{#each students}}
-        <tr>
-           <td>{{this.studentID}}</td>
-           <td>{{this.studentName}}</td>
-           <td>{{this.studentEmail}}</td>
-           <td>{{this.studentPhone}}</td>
-           <td> <a href="/deleteStudent/{{../courseID}}/{{this.studentID}}">Eliminar del curso</a></td>
-        </tr>
-      {{/each}}
-   </tbody>
-</table>
+</div>
 
-{{>footer}}
+<div class="container">
+   <table class="table">
+      <thead class="thead-dark">
+         <tr>
+            <th>Identificación del estudiante</th>
+            <th>Nombre del estudiante</th>
+            <th>Correo del estudiante</th>
+            <th>Teléfono del estudiante</th>
+            <th>Eliminar</th>
+         </tr>
+      </thead>
+      <tbody>
+         {{#each students}}
+         <tr>
+            <td>{{this.studentID}}</td>
+            <td>{{this.studentName}}</td>
+            <td>{{this.studentEmail}}</td>
+            <td>{{this.studentPhone}}</td>
+            <td> <a href="/deleteStudent/{{../courseID}}/{{this.studentID}}">Eliminar del curso</a></td>
+         </tr>
+         {{/each}}
+      </tbody>
+   </table>
+
+   {{>footer}}
+
+</div>

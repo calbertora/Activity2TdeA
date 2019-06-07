@@ -1,27 +1,47 @@
 {{>header}}
-<h1>Acciones del Coordinador</h1>
-<a href="/courseList">Ver listado de cursos</a>
-<h2>Ingresar un nuevo curso: </h2>
-<form action="/course" method="POST">
-   <div class="form-group">
-      <label for="courseID">Identificador del curso</label>
-      <input type="text" id="courseID" name="courseID" required>
+<div class="d-flex justify-content-center">
+   <h1>Acciones del Coordinador</h1>
+</div>
 
-      <label for="courseName">Nombre del curso</label>
-      <input type="text" id="courseName" name="courseName" required>
+<div class="d-flex justify-content-center">
+   <button type="button" class="btn btn-link"><a href="/courseList">Ver listado de cursos</a></button>
+</div>
 
-      <label for="courseDescription">Descripción del curso</label>
-      <input type="text" id="courseDescription" name="courseDescription" required>
 
-      <label for="coursePrice">Precio del curso</label>
-      <input type="number" id="coursePrice" name="coursePrice" required>
+<div class="container">
+   <h2>Ingresar un nuevo curso: </h2>
+   <form action="/course" method="POST">
+      <div class="form-group">
+         <label for="courseID">Identificador del curso</label>
+         <input class="form-control" type="text" id="courseID" name="courseID" required>
+      </div>
 
-      <input type="radio" id="modaliity" name="modality" value="Virtual"> Virtual<br>
-      <input type="radio" id="modaliity" name="modality" value="Presencial"> Presencial<br>
+      <div class="form-group">
+         <label for="courseName">Nombre del curso</label>
+         <input class="form-control" type="text" id="courseName" name="courseName" required>
+      </div>
 
-      <label for="coursePrice">Intensidad horaria</label>
-      <input type="number" id="intensity" name="intensity">
-   </div>
-   <input type="submit" value="Enviar">
-</form>
+      <div class="form-group">
+         <label for="courseDescription">Descripción del curso</label>
+         <input class="form-control" type="text" id="courseDescription" name="courseDescription" required>
+      </div>
+
+      <div class="form-group">
+         <label for="coursePrice">Precio del curso</label>
+         <input class="form-control" type="number" id="coursePrice" name="coursePrice" required>
+      </div>
+
+      <div class="form-group">
+         <input class="form-check-label" type="radio" id="modaliity" name="modality" value="Virtual"> Virtual<br>
+         <input class="form-check-label" type="radio" id="modaliity" name="modality" value="Presencial"> Presencial<br>
+      </div>
+      
+      <div class="form-group">
+         <label for="coursePrice">Intensidad horaria</label>
+         <input class="form-control" type="number" id="intensity" name="intensity">
+      </div>
+
+      <input type="submit" value="Enviar" class="btn btn-primary">
+   </form>
+</div>
 {{>footer}}

@@ -7,7 +7,7 @@ const functions = require('./controllers/functions')
 
 const views = path.join(__dirname,'./views');
 const partials = path.join(__dirname,'./partials');
-const dirNode_modules = path.join(__dirname , '../node_modules')
+const dirNode_modules = path.join(__dirname , './node_modules')
 
 // Bootstrap
 app.use('/css', express.static(dirNode_modules + '/bootstrap/dist/css'));

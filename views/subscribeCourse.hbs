@@ -1,23 +1,34 @@
 {{>header}}
-<h1>Suscribrse a un curso</h1>
 
-<h2>Ingresar datos de aspirante: </h2>
-<form action="/student" method="POST">
-   <div class="form-group">
-      <label for="studentID">Identificador del estudiante</label>
-      <input type="text" id="studentID" name="studentID" required>
+<div class="d-flex justify-content-center">
+   <h1>Suscribirse a un curso</h1>
+</div>
 
-      <label for="studentName">Nombre del estudiante</label>
-      <input type="text" id="studentName" name="studentName" required>
+<div class="container">
+   <h2>Ingresar datos de aspirante: </h2>
+   <form action="/student" method="POST">
+      <div class="form-group">
+         <label for="studentID">Identificador del estudiante</label>
+         <input class="form-control" type="text" id="studentID" name="studentID" required>
+      </div>
 
-      <label for="studentEmail">Correo del estudiante</label>
-      <input type="email" id="studentEmail" name="studentEmail" required>
+      <div class="form-group">
+         <label for="studentName">Nombre del estudiante</label>
+         <input class="form-control" type="text" id="studentName" name="studentName" required>
+      </div>
 
-      <label for="studentPhone">Teléfono del estudiante</label>
-      <input type="number" id="studentPhone" name="studentPhone" required>
+      <div class="form-group">
+         <label for="studentEmail">Correo del estudiante</label>
+         <input class="form-control" type="email" id="studentEmail" name="studentEmail" required>
+      </div>
 
+      <div class="form-group">
+         <label for="studentPhone">Teléfono del estudiante</label>
+         <input class="form-control" type="number" id="studentPhone" name="studentPhone" required>
+      </div>
       <input type="number" id="courseID" name="courseID" value="{{course.courseID}}" hidden>
-   </div>
-   <input type="submit" value="Enviar">
-</form>
+      <input type="submit" value="Enviar" class="btn btn-primary">
+
+   </form>
+</div>
 {{>footer}}
