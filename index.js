@@ -75,9 +75,10 @@ app.get('/studentsByCourse/:id', (req, res) => {
 
 app.get('/deleteStudent/:courseID/:studentID', (req, res) => {
    functions.deleteStudent(req.params.studentID,req.params.courseID);
-   const courses = functions.getCourses();
-   res.render('courseList',{
-      courses
+   const students = functions.getStudentsByCourse(req.params.courseID);
+   res.render('studentsByCourse',{
+      students,
+      courseID: req.params.courseID
    });
 });
 
