@@ -18,6 +18,6 @@ Para correr el servicio web se debe correr el siguiente comando:
       node index
       ```
 
-La página tendrá un barra de navegación con cada uno de los roles del sistema, y al dar click a cada una de estas se podrá acceder a sus funcionalidades
+La página correra en el puerto 3000, y esta tendrá un barra de navegación con cada uno de los roles del sistema, y al dar click a cada una de estas se podrá acceder a sus funcionalidades
 
 
